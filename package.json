@@ -1,6 +1,6 @@
 {
   "name": "react-widget-starter",
-  "version": "0.0.2",
+  "version": "0.0.1",
   "description": "React starter kit focused on making widges for embedding into already existing websites and CMS platforms such as Drupal, Wordpress, etc...",
   "main": "webpack.config.js",
   "scripts": {
@@ -12,7 +12,7 @@
   "keywords": [],
   "author": "A.j. Blosser",
   "license": "ISC",
-  "dependencies": {
+  "devDependencies": {
     "css-loader": "^0.25.0",
     "extract-text-webpack-plugin": "^1.0.1",
     "gh-pages": "^0.11.0",
@@ -24,7 +24,10 @@
     "webpack": "^1.13.2",
     "webpack-dev-server": "^1.15.2",
     "webpack-merge": "^0.14.1",
-    "webpack-validator": "^2.2.7",
+    "webpack-validator": "^2.2.7"
+  },
+  "dependencies": {
+    "purecss": "^0.6.0",
     "react": "^15.3.1"
   }
 }
