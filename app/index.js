@@ -1,5 +1,9 @@
-require('react');
-require('bulma');
+import React from 'react';
+import ReactDOM from 'react-dom';
+import WidgetTemplate from './components/WidgetTemplate';
 
-var component = require('./components/component.js');
-document.body.appendChild(component());
+if(process.env.NODE_ENV !== 'production') {
+  React.Perf = require('react-addons-perf');
+}
+
+ReactDOM.render(<WidgetTemplate />, document.getElementById("widget"));
