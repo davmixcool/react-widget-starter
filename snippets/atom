@@ -1,0 +1,149 @@
+
+'.source.js':
+  'React Component':
+    'prefix': 'rc'
+    'body': """
+        import React, { Component, PropTypes  } from \'react\';
+        import CSSModules from \'react-css-modules\';
+
+        import Bulma from \'../sass/style.scss\';
+        //import Bulma from \'./wt.css\';
+
+        class ${1:WidgetTemplate} extends Component {
+          render() {
+            return <div styleName="section">
+
+                      <div styleName="container">{this.props.children}</div>
+                  </div>
+          }
+        }
+
+        export default CSSModules(${1:WidgetTemplate},Bulma,{allowMultiple:true});
+        """
+  'React Native Component':
+    'prefix': 'rnc'
+    'body': """
+        import React, { Component} from 'react'
+        import {  ListView, StatusBar, StyleSheet, TextInput, Text, View,  } from 'react-native';
+
+
+
+        export default class ${1:ReactNativeComponent} extends Component {
+          render() {
+            return <View style={ styles.container } >
+
+                      <StatusBar barStyle="light-content" />
+                      <TextInput style={ styles.searchBox} />
+
+
+                    </View>
+          }
+        }
+
+        const styles = StyleSheet.create({
+            container: {
+              flex: 1,
+              justifyContent: 'center',
+              alignItems: 'center',
+              backgroundColor: '#F5FCFF',
+            },
+            searchBox: {
+              height:40,
+              bordercolor: clrs.black,
+              borderWidth: 2,
+              margin: 16,
+              paddingLeft: 10,
+            }
+
+          });
+
+        """
+
+
+  'React Router':
+    'prefix':'rroute'
+    'body':"""
+    <Router>
+        <div>
+          <ul>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/about">About</Link></li>
+            <li><Link to="/topics">Topics</Link></li>
+          </ul>
+
+          <hr/>
+
+          <Match exactly pattern="/" component={EventTransactionReport} />
+          <Match pattern="/about" component={EventTransactionReport} />
+          <Match pattern="/topics" component={WidgetTemplate} />
+        </div>
+      </Router>
+      """
+  'log array length':
+    'prefix': 'llen'
+    'body': 'console.log(\'${1:array} length\', ${1:array}.length);$2'
+  'React Render':
+    'prefix':'rrend'
+    'body':"""
+    ReactDOM.render(<${1:ComponentName}>Hello World!</${1:ComponentName}>, document.getElementById("${2:Dom Target}"));
+    """
+  'Array Map':
+    'prefix':'map'
+    'body':"""
+    ${1:array}.map(function(obj) {
+      ${3:code}
+    });
+    """
+
+  'React Story':
+    'prefix':'rs'
+    'body':"""
+    import React from 'react';
+    import { storiesOf, action, linkTo } from '@kadira/storybook';
+    import ${1:WidgetTemplate} from '../${1:WidgetTemplate}';
+
+    storiesOf('${1:WidgetTemplate}', module)
+      .add('Danger Notice', () => (
+        <${1:WidgetTemplate} >
+                <div styleName="notification is-danger">
+                    <button onClick={action('delete clicked!')} styleName="delete"></button>
+                    Danger lorem ipsum dolor sit amet, consectetur
+                    adipiscing elit lorem ipsum dolor sit amet,
+                    consectetur adipiscing elit
+                </div>
+
+      </${1:WidgetTemplate}>
+      ))
+      .add('Box', () => (
+        <${1:WidgetTemplate} >
+          <div styleName="box">lorem ipsum dolor sit amet, consectetur
+        adipiscing elit lorem ipsum dolor sit amet,
+        consectetur adipiscing elit
+        </div>
+
+          </${1:WidgetTemplate}>
+      )).add('Buttons', () => (
+          <${1:WidgetTemplate} >
+            <a styleName="button">Button</a>
+            <a styleName="button is-primary">Primary</a>
+            <a styleName="button is-info">Info</a>
+            <a styleName="button is-success">Success</a>
+            <a styleName="button is-warning">Warning</a>
+            <a styleName="button is-danger">Danger</a>
+            <a styleName="button is-link">Link</a>
+
+            </${1:WidgetTemplate}>
+        )).add('Progress', () => (
+            <${1:WidgetTemplate} >
+              <progress styleName="progress" value="15" max="100">15%</progress>
+              <progress styleName="progress is-primary" value="30" max="100">30%</progress>
+              <progress styleName="progress is-info" value="45" max="100">45%</progress>
+              <progress styleName="progress is-success" value="60" max="100">60%</progress>
+              <progress styleName="progress is-warning" value="75" max="100">75%</progress>
+              <progress styleName="progress is-danger" value="90" max="100">90%</progress>
+
+              </${1:WidgetTemplate}>
+          ))
+        ;
+
+    """

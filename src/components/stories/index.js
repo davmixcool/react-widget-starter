@@ -1,0 +1,2 @@
+
+require('./WidgetTemplate.story.jsx');
