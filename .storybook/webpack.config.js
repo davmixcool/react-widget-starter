@@ -10,9 +10,36 @@ module.exports = {
   plugins: [
     // your custom plugins
   ],
+  resolve: {
+    extensions:['','.js','.jsx']
+  },
   module: {
     loaders: [
-      // add your custom loaders.
+      {
+    test: /\.scss$/,
+    loaders: [
+        'style?sourceMap',
+        'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]',
+        'sass?sourceMap'
+    ]
+},
+{
+  test: /\.sass$/,
+  loaders: [
+      'style?sourceMap',
+      'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]',
+      'sass?sourceMap'
+  ]
+},
+{
+  test: /\.css$/,
+  loaders: [
+      'style?sourceMap',
+      'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]',
+
+
+  ]
+}
     ],
   },
 };
