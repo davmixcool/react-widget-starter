@@ -31,9 +31,9 @@
 
         import Sass from '../sass/style.scss';
 
-        @connect((state)=>{
+        @connect((store)=>{
           return {
-            state:state
+            store:store
           }
         }
         )
