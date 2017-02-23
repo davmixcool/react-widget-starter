@@ -1,21 +1,17 @@
 import React, { Component, PropTypes  } from 'react';
 import CSSModules from 'react-css-modules';
+import {connect} from 'react-redux';
 
 import Sass from '../sass/style.scss';
 import proptypes from '../lib/proptypes';
 
-class WidgetTemplate extends Component {
-
-  //###################### PROPERTIES
-  state = {}
-
-  static propTypes = {
-    title: proptypes.optionalString;
+@connect((store)=>{
+  return {
+    store:store
   }
-
-  static defaultProps = {
-    title: 'Your Name'
-  }
+})
+@CSSModules(Sass,{allowMultiple:true})
+export default class WidgetTemplate extends Component {
 
   //###################### METHODS
     handleSubmit = (e) => {
@@ -37,5 +33,3 @@ class WidgetTemplate extends Component {
 
 
 }
-
-export default CSSModules(WidgetTemplate,Sass,{allowMultiple:true});
