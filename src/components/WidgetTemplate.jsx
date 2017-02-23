@@ -3,7 +3,7 @@ import CSSModules from 'react-css-modules';
 import {connect} from 'react-redux';
 
 import Sass from '../sass/style.scss';
-import proptypes from '../lib/proptypes';
+
 
 @connect((store)=>{
   return {
