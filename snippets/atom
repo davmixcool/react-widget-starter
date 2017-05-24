@@ -22,6 +22,88 @@
 
 
 '.source.js':
+    'Redux Store':
+      'prefix': 'rdxs'
+      'body': """
+          import {applyMiddleware, createStore, compose} from 'redux';
+
+          import logger from 'redux-logger';
+          import thunk from 'redux-thunk';
+          import promise from 'redux-promise-middleware';
+
+          import reducer from './reducers';
+
+          const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+          export default createStore(reducer, composeEnhancers(
+              applyMiddleware(promise(), thunk, logger())
+            ));
+      """
+    'Redux Connect':
+      'prefix': 'rdxc'
+      'body': """
+          @connect((store)=>{
+            return {
+              store:store
+            }
+          })
+      """
+    'Redux Actions':
+      'prefix': 'rdxa'
+      'body': """
+        import axios from 'axios';
+
+        export function fetch() {
+          return {
+            type:"FETCH_WIDGET_DATA",
+            payload:axios.get("/data")
+          }
+        }
+
+        export function click(id) {
+          return {
+            type:"WIDGET_CLICK",
+            payload:id
+          }
+        }
+      """
+    'Redux Reducer Index':
+      'prefix': 'rdxri'
+      'body': """
+          import {combineReducers} from 'redux';
+          import widget from './widgetReducer';
+
+          export default combineReducers({
+            widget,
+          });
+      """
+    'Redux Reducer':
+      'prefix': 'rdxr'
+      'body': """
+          export default function reducer(state={
+            fetching: false,
+            fetched: false,
+            data:[]
+          }, action) {
+
+            switch (action.type) {
+              case "WIDGET_CLICK": {
+                return {...state};
+              }
+              case "FETCH_WIDGET_DATA_PENDING": {
+                return {...state, fetching:true};
+              }
+              case "FETCH_WIDGET_DATA_REJECTED": {
+                return {...state, fetching:false}
+              }
+              case "FETCH_WIDGET_DATA_FULFILLED": {
+                return {...state,data:action.payload.data}
+              }
+              default: {
+                return state;
+              }
+            }
+          };
+      """
   'React Component':
     'prefix': 'rc'
     'body': """
@@ -66,6 +148,7 @@
 
 
         """
+
 
   'React Prop Types':
     'prefix': 'rpt'
