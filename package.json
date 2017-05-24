@@ -1,6 +1,6 @@
 {
   "name": "react-widget-starter",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "React starter kit focused on making widges for embedding into already existing websites and CMS platforms such as Drupal, Wordpress, etc...",
   "main": "./src/index.js",
   "scripts": {
