@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './redux/ReactotronConfig';
 import { Provider } from 'react-redux';
 import store from './redux/store.js';
 
