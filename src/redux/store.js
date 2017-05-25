@@ -1,6 +1,6 @@
 import {applyMiddleware, createStore, compose} from 'redux';
 import Reactotron from 'reactotron-react-js';
-import './redux/ReactotronConfig';
+import './ReactotronConfig';
 import { createLogger as logger} from 'redux-logger';
 import thunk from 'redux-thunk';
 import promise from 'redux-promise-middleware';
